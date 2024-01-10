@@ -14,16 +14,22 @@ const props = defineProps({
   }
 })
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const emit = defineEmits(['value-changed-text', 'value-changed-email', 'value-changed-password', `value-changed-${string}`]);
+const emit = defineEmits(['value-changed-text', 'value-changed-email', 'value-changed-password']);
 
 const isDark = useDark()
 
 const newValue = ref('')
 
 const emitNewValue = (type: string) => {
-  emit(`value-changed-${type}`, newValue.value)
+  if(type === 'text') {
+    emit('value-changed-text', newValue.value)
+  }
+  if(type === 'email') {
+    emit('value-changed-email', newValue.value)
+  }
+  if(type === 'password') {
+    emit('value-changed-password', newValue.value)
+  }
 }
 </script>
 

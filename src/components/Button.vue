@@ -11,7 +11,7 @@ const props = defineProps({
   },
   buttonType: {
     type: String,
-    options: ['submit', 'cancel']
+    options: ['submit', 'cancel', 'deletion']
   },
   icon: {
     type: String,
@@ -25,6 +25,13 @@ const isDark = useDark()
 <template>
   <div class="button-wrap" :class="{dark: isDark}">
     <button v-if="props.buttonType === 'submit'" type="submit" class="button submit-button">
+      <v-icon v-if="props.loading" name="ri-loader-5-fill" class="spinner"/>
+      <i v-if="props.icon && !props.loading" class="pi" :class="props.icon" />
+      <span v-if="props.label && !props.loading" class="text">
+        {{ props.label }}
+      </span>
+    </button>
+    <button v-if="props.buttonType === 'deletion'" type="submit" class="button submit-button deletion-button">
       <v-icon v-if="props.loading" name="ri-loader-5-fill" class="spinner"/>
       <i v-if="props.icon && !props.loading" class="pi" :class="props.icon" />
       <span v-if="props.label && !props.loading" class="text">
@@ -114,6 +121,24 @@ const isDark = useDark()
         color: $text-light;
       }
     }
+
+    .deletion-button {
+      background-color: rgb(205, 0, 0);
+    }
+
+  }
+
+  .cancel-button {
+    color: $text-light;
+    &:hover {
+        .text{
+          color: $text-dark;
+        }
+      }
+  }
+
+  .deletion-button {
+    background-color: rgb(157, 0, 0);
   }
 }
 </style>

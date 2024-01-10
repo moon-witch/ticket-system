@@ -1,8 +1,9 @@
-import {ref, type Ref, toRaw} from 'vue'
+import {ref, type Ref} from 'vue'
 import { defineStore } from 'pinia'
-import {supabase} from "../../supabase";
+import {supabase, supabaseAdmin} from "../../supabase";
 import AccountModel from '@/models/AccountModel';
 import DepartmentModel from '@/models/DepartmentModel';
+import { useToast } from 'primevue/usetoast';
 
 export const useAccountStore = defineStore('account', () => {
     const customers = ref<Record<string, any>[]>([])
@@ -12,6 +13,7 @@ export const useAccountStore = defineStore('account', () => {
     const currentUserId = ref<string>();
     const currentUserRole = ref<{ role_id: any; }>()
     const currentUserDepartment = ref<DepartmentModel | undefined>()
+    const departments = ref<DepartmentModel[]>([])
     const currentUser: Ref<AccountModel | undefined> = ref(new AccountModel()) 
     const allAccounts = ref<AccountModel[]>([])
 
@@ -150,8 +152,31 @@ export const useAccountStore = defineStore('account', () => {
         }
     }
 
-    return { currentUserId, customers, employees, singleCustomer, userRoles, currentUserRole, allAccounts, currentUser,
+    async function getDepartments() {
+        try {
+            const { data, error, status } = await supabase.from('department').select(`department_id, name`).order('department_id')
+
+            if (error && status !== 406) throw error
+
+            if (data) {
+                departments.value = data
+            }
+        } catch (error: any) {
+            console.log(error.message)
+        }
+    }
+
+    async function deleteUser(userId: string){
+        try {
+            const { data, error } = await supabaseAdmin.auth.admin.deleteUser(userId)
+        } catch {
+            let user = allAccounts.value.find(a => a.user_id == userId);
+            useToast().add({ severity: 'error', summary: '', detail: `Failed to delete User ${user?.name} ${user?.surname}`, life: 3000 })
+        }
+    }
+
+    return { currentUserId, customers, employees, singleCustomer, userRoles, currentUserRole, allAccounts, currentUser, departments,
         getCustomers, getEmployees, getSingleCustomer, getAllUserRoles, getCurrentUserRole, getAllAccounts,
-        updateUser, setCurrentUser }
+        updateUser, setCurrentUser, getDepartments, deleteUser }
 })
 

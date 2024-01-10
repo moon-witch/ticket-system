@@ -4,11 +4,11 @@ import Button from '@/components/Button.vue'
 import Dropdown from 'primevue/dropdown';
 import InputText from "primevue/inputtext";
 import {useDark} from "@vueuse/core";
-import {onMounted, reactive, ref, toRaw, watch} from "vue";
-import {useTicketStore} from "@/stores/tickets";
+import {onMounted, reactive, ref, watch} from "vue";
 import {useAccountStore} from "@/stores/accounts";
 import {useToast} from "primevue/usetoast";
 import AccountModel from '@/models/AccountModel';
+import { useConfirmation } from '@/stores/confirmation';
 
 const isDark = useDark()
 const toast= useToast()
@@ -33,7 +33,7 @@ const departments = ref<Record<string, any>[]>([])
 const roles = ref<Record<string, any>[]>([])
 
 onMounted(async () => {
-  departments.value = useTicketStore().departments
+  departments.value = useAccountStore().departments
   roles.value = useAccountStore().userRoles
 })
 
@@ -48,7 +48,7 @@ const closeModal = () => {
 }
 
 const updateUser = async () => {
-  editUser.department_id = editUser.department?.department_id ?? null;
+  editUser.department_id = editUser.department!.department_id;
   editUser.role_id = editUser.role!.role_id;
   await useAccountStore().updateUser(editUser)
   await useAccountStore().getAllAccounts()
@@ -56,6 +56,18 @@ const updateUser = async () => {
   toast.add({ severity: 'success', summary: '', detail: `${editUser.name} ${editUser.surname} updated`, life: 3000 });
   emit('user-updated')
   closeModal()
+}
+
+const deleteUser = async () => {
+  useConfirmation().confirm = async () => {
+    await useAccountStore().deleteUser(editUser.user_id);
+    toast.add({ severity: 'success', summary: '', detail: `${editUser.name} ${editUser.surname} deleted`, life: 3000 });
+    closeModal();
+    await useAccountStore().getAllAccounts();
+  }
+  useConfirmation().question = `You are about to delete the user ${editUser.name} ${editUser.surname}`
+  useConfirmation().visible = true;
+
 }
 </script>
 
@@ -82,6 +94,7 @@ const updateUser = async () => {
           <div class="buttons">
             <Button button-type="submit" label="Update" @click="updateUser()"/>
             <Button button-type="cancel" label="Cancel" @click="closeModal"/>
+            <Button button-type="deletion" label="Delete" @click="deleteUser()"/>
           </div>
         </div>
       </template>
@@ -122,6 +135,7 @@ const updateUser = async () => {
   }
   .buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 0.5rem;
     margin-top: 0.5rem;

@@ -45,8 +45,6 @@ export const useMessageStore = defineStore('message', () => {
   async function sendMessage(message: MessageModel){
     if(!useAccountStore().currentUser) return;
     
-    message.user_id = String(useAccountStore().currentUserId);
-    message.department_id = Number(useAccountStore().currentUser!.department_id)
     const { data, error, status } = await supabase
     .from('message')
     .insert(message)

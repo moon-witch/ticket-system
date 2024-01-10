@@ -2,7 +2,7 @@
 import {useDark} from "@vueuse/core";
 import {useRoute, useRouter} from "vue-router";
 import Button from '@/components/Button.vue'
-import {computed, onBeforeMount, onMounted, ref} from "vue";
+import {computed, onBeforeMount, ref} from "vue";
 import Message from '@/components/TicketAreas/Message.vue'
 import TicketBox from "@/components/TicketAreas/TicketBox.vue";
 import CustomerBox from "@/components/TicketAreas/CustomerBox.vue";
@@ -10,6 +10,8 @@ import {useTicketStore} from "@/stores/tickets";
 import MessageModel from "@/models/MessageModel";
 import { useMessageStore } from "@/stores/messages";
 import { MessageTypes } from "@/helpers/MessageType";
+import { useAccountStore } from "@/stores/accounts";
+import { DefaultDepartments } from "@/helpers/defaultDepartments";
 
 const isDark = useDark()
 
@@ -18,8 +20,9 @@ const router = useRouter()
 
 const isExpanded = ref(false);
 
-const header = ref<MessageTypes | undefined>()
+const header = ref<string | undefined>()
 const message = ref('')
+const messageType = ref<MessageTypes | undefined>()
 
 const message_history = ref<MessageModel[]>([])
 
@@ -27,9 +30,20 @@ const isNearBottom = (threshold: number) => {
   return chatBox.value.scrollHeight - chatBox.value.scrollTop - chatBox.value.clientHeight < threshold
 }
 
-const expand = (areaHeader: MessageTypes) => {
+const expand = (type: MessageTypes) => {
   isExpanded.value = true;
-  header.value = areaHeader
+  messageType.value = type;
+  switch(type){
+    case MessageTypes.internal:
+      header.value = 'Internal Message';
+      break;
+    case MessageTypes.external:
+      header.value = 'External Message';
+      break;
+    case MessageTypes.keynote:
+      header.value = 'Keynote';
+      break;
+  }
   if (isNearBottom(200)) {
     setTimeout(() => {
       scrollToBottom()
@@ -46,8 +60,8 @@ const updateMessages = async () => {
 
 const sendMessage = async (type: MessageTypes | undefined) => {
   if(!type) { scrollToBottom; return; }
-  console.log({messageType: type, messageSent: message.value})
-  await useMessageStore().sendMessage(new MessageModel(message.value, Number(route.params.id), type))
+  let user = useAccountStore().currentUser;
+  await useMessageStore().sendMessage(new MessageModel(user!.user_id, message.value, Number(route.params.id), type, user!.department_id))
   await updateMessages();
   message.value = ''
   isExpanded.value = false;
@@ -94,7 +108,7 @@ onBeforeMount(async () => {
       <div class="chat-container" :class="{expanded: isExpanded}">
         <div class="messages" ref="chatBox" @scroll="scrollPosition = chatBox.scrollTop">
           <div v-for="msg in message_history.values()" class="message">
-            <div v-if="msg.department_id === null" class="customer-message">
+            <div v-if="msg.department_id == DefaultDepartments.Customer" class="customer-message">
               <Message :message="msg.content" :sender="msg.user_name" :created="msg.timestamp" :department="null" :msg-type="msg.messageType" />
             </div>
             <div v-else class="employee-message">
@@ -120,7 +134,7 @@ onBeforeMount(async () => {
           </Transition>
           <Transition name="appear">
             <div v-show="isExpanded" class="send-button">
-              <Button @click="sendMessage(header)" button-type="submit" label="Send" />
+              <Button @click="sendMessage(messageType)" button-type="submit" label="Send" />
             </div>
           </Transition>
         </div>

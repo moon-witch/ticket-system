@@ -48,6 +48,7 @@ onMounted(async () => {
   await useTicketStore().getPriorities()
   await useAccountStore().getCustomers()
   await useAccountStore().getEmployees()
+  await useAccountStore().getDepartments()
   await useTicketStore().getDepartments()
   await useTicketStore().getStatus()
   await useAccountStore().getAllUserRoles()

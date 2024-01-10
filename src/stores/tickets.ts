@@ -1,7 +1,8 @@
-import {ref, unref} from 'vue'
+import {ref} from 'vue'
 import { defineStore } from 'pinia'
 import {supabase} from "../../supabase";
 import {useToast} from "primevue/usetoast";
+import { DefaultDepartments } from '@/helpers/defaultDepartments';
 
 export const useTicketStore = defineStore('ticket', () => {
     const ticketTypes = ref<Record<string, any>[]>([])
@@ -122,12 +123,12 @@ export const useTicketStore = defineStore('ticket', () => {
 
     async function getDepartments() {
         try {
-            const { data, error, status } = await supabase.from('department').select(`department_id, name`)
+            const { data, error, status } = await supabase.from('department').select(`department_id, name`).order('department_id')
 
             if (error && status !== 406) throw error
 
             if (data) {
-                departments.value = data
+                departments.value = data.filter(d => ![DefaultDepartments.None, DefaultDepartments.Customer].includes(d.department_id))
             }
         } catch (error: any) {
             console.log(error.message)

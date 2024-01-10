@@ -8,6 +8,8 @@ import {useTicketStore} from "@/stores/tickets";
 import { useMessageStore } from "@/stores/messages";
 import { MessageTypes } from "@/helpers/MessageType";
 import MessageModel from "@/models/MessageModel";
+import { useAccountStore } from "@/stores/accounts";
+import { DefaultDepartments } from "@/helpers/defaultDepartments"
 
 const isDark = useDark()
 
@@ -16,18 +18,15 @@ const router = useRouter()
 
 const isExpanded = ref(false);
 
-const header = ref('')
 const message = ref()
-const ticketId = ref()
 const message_history: Ref<MessageModel[]> = ref([])
 
 const isNearBottom = (threshold: number) => {
   return chatBox.value.scrollHeight - chatBox.value.scrollTop - chatBox.value.clientHeight < threshold
 }
 
-const expand = (areaHeader: string) => {
+const expand = () => {
   isExpanded.value = true;
-  header.value = areaHeader
   if (isNearBottom(250)) {
     setTimeout(() => {
       scrollToBottom()
@@ -45,7 +44,7 @@ const updateMessages = async () => {
 
 const sendMessage = async () => {
   let ticketId = Number(route.params.id)
-  await useMessageStore().sendMessage(new MessageModel(message.value, ticketId, MessageTypes.external))
+  await useMessageStore().sendMessage(new MessageModel(useAccountStore().currentUser!.user_id, message.value, ticketId, MessageTypes.external, DefaultDepartments.Customer))
   await updateMessages();
   message.value = ''
   isExpanded.value = false;
@@ -81,7 +80,7 @@ onBeforeMount(async () => {
     allowed.value = true
     await updateMessages()
     chatBox.value.scrollTop = chatBox.value.scrollHeight;
-    expand('external message')
+    expand()
     if (ticketData.value[0] && !ticketData.value[0].seen_by_customer) {
       await useTicketStore().updateTicketViewStatus(ticketData.value[0].ticket_id, false)
     }
@@ -96,7 +95,7 @@ onMounted( () => {
 
 watch(scrollPosition, () => {
   if (isNearBottom(250) && isExpanded.value === false) {
-    expand('external message')
+    expand()
   }
   if (!isNearBottom(500) && isExpanded.value === true) {
     isExpanded.value = false
@@ -116,7 +115,7 @@ watch(scrollPosition, () => {
       <div class="chat-container" :class="{expanded: isExpanded}">
         <div class="messages" ref="chatBox" @scroll="scrollPosition = chatBox.scrollTop">
           <div v-for="msg in message_history" class="message">
-            <div v-if="!msg.department_id" class="customer-message">
+            <div v-if="msg.department_id == DefaultDepartments.Customer" class="customer-message">
               <Message :message="msg.content" :sender="msg.user_name" :created="msg.timestamp" :department="null" :msg-type="msg.messageType" />
             </div>
             <div v-else class="employee-message">
@@ -129,7 +128,7 @@ watch(scrollPosition, () => {
           <i v-show="isExpanded" @click="isExpanded = !isExpanded || isNearBottom(250)" class="pi pi-angle-down"/>
           <Transition name="appear">
             <div v-show="!isExpanded" class="action-buttons">
-              <Button @click="expand('External Message')" button-type="submit" label="Send new message" />
+              <Button @click="expand()" button-type="submit" label="Send new message" />
             </div>
           </Transition>
           <Transition name="appear">

@@ -1,6 +1,7 @@
 import { UserRoles } from "@/helpers/UserRoles";
 import type DepartmentModel from "./DepartmentModel";
 import type RoleModel from "./RoleModel";
+import { DefaultDepartments } from "@/helpers/defaultDepartments";
 
 export default class AccountModel {
   user_id!: string;
@@ -9,7 +10,7 @@ export default class AccountModel {
   email!: string | null;
   telephone!: string | null;
   role_id!: UserRoles;
-  department_id!: number | null;
+  department_id!: number;
   creation_date!: string;
 
   role!: RoleModel | null;
@@ -26,7 +27,7 @@ export default class AccountModel {
     acc.email = null;
     acc.telephone = null;
     acc.role_id = UserRoles.customer;
-    acc.department_id = null;
+    acc.department_id = DefaultDepartments.None;
     acc.creation_date = new Date().toLocaleString();
 
     acc.role = null;

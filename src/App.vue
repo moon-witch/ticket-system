@@ -10,6 +10,8 @@ import AuthUserModel from './models/AuthUserModel';
 import {useToast} from "primevue/usetoast";
 import CreateTicketModal from "@/components/CreateTicketModal.vue"
 import { useAccountStore } from './stores/accounts';
+import ConfirmationModal from './components/ConfirmationModal.vue';
+import { useConfirmation } from './stores/confirmation';
 
 const isDark = useDark()
 const toast = useToast()
@@ -19,6 +21,8 @@ const currentUser: Ref<AuthUserModel | undefined> = ref()
 const key = ref(0)
 
 const visible = ref(false)
+
+const confirm = useConfirmation();
 
 const items = ref([
   {
@@ -100,6 +104,9 @@ const logout = () => {
           </div>
         </template>
       </Toast>
+      <ConfirmationModal :visible="confirm.visible" :title="confirm.title" :question="confirm.question"
+        confirm-text:="confirm." @confirmed="confirm.userConfirmed" 
+        :deny-text="confirm.denyText" @denied="confirm.userDenied"/>
     </div>
 </template>
 

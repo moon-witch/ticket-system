@@ -2,7 +2,7 @@
 import CompanyBanner from "@/components/CompanyBanner.vue";
 import Input from "@/components/Input.vue";
 import {useDark} from "@vueuse/core";
-import { supabase } from "@/../supabase";
+import { supabase } from "@/supabase";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
 import Button from "@/components/Button.vue"

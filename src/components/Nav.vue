@@ -2,7 +2,7 @@
 import {computed, onMounted, ref} from "vue";
 import { useDark } from '@vueuse/core'
 import ColorModeToggle from "@/components/Toggles/ColorModeToggle.vue";
-import { supabase } from "@/../supabase"
+import { supabase } from "@/supabase"
 import {useRouter} from "vue-router";
 import AuthUserModel from "@/models/AuthUserModel";
 

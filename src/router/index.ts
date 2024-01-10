@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Landing from '../views/LandingView.vue'
 import NotFound from '@/views/404.vue'
-import {supabase} from "@/../supabase";
+import {supabase} from "@/supabase";
 import {useAccountStore} from "@/stores/accounts";
 import {getNameFromId} from "@/helpers/getName";
 import {ref} from "vue";

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { supabase } from "../../supabase";
+import { supabase } from "../supabase";
 import { useAccountStore } from './accounts';
 import { UserRoles } from '@/helpers/UserRoles';
 import MessageModel from '@/models/MessageModel';

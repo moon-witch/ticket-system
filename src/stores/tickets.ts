@@ -1,6 +1,6 @@
 import {ref} from 'vue'
 import { defineStore } from 'pinia'
-import {supabase} from "../../supabase";
+import {supabase} from "../supabase";
 import {useToast} from "primevue/usetoast";
 import { DefaultDepartments } from '@/helpers/defaultDepartments';
 

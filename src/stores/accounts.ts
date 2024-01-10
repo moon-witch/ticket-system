@@ -1,6 +1,6 @@
 import {ref, type Ref} from 'vue'
 import { defineStore } from 'pinia'
-import {supabase, supabaseAdmin} from "../../supabase";
+import {supabase, supabaseAdmin} from "../supabase";
 import AccountModel from '@/models/AccountModel';
 import DepartmentModel from '@/models/DepartmentModel';
 import { useToast } from 'primevue/usetoast';

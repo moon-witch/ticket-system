@@ -4,7 +4,7 @@ import CompanyBanner from "@/components/CompanyBanner.vue";
 import {useDark} from "@vueuse/core";
 import {useRouter} from "vue-router";
 import {onBeforeUnmount, ref} from "vue";
-import {supabase} from "@/../supabase.js";
+import {supabase} from "@/supabase";
 import Button from "@/components/Button.vue";
 
 const isDark = useDark()

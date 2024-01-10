@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import Nav from '@/components/Nav.vue'
 import {useDark} from "@vueuse/core";
-import {supabase} from "@/../supabase.js"
+import {supabase} from "@/supabase"
 import {onMounted, onUpdated, ref, type Ref} from "vue";
 import Toast from 'primevue/toast';
 import SpeedDial from 'primevue/speeddial';

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "moonless_scregular";
+    src: url("@/assets/fonts/moonlesssc-regular_1-webfont.woff2") format("woff2"),
+    url("./fonts/moonlesssc-regular_1-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksandbold";
+    src: url("@/assets/fonts/quicksand-bold-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand-bold-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksandbold_italic";
+    src: url("@/assets/fonts/quicksand-bolditalic-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand-bolditalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksanddash";
+    src: url("@/assets/fonts/quicksand_dash-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand_dash-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksanditalic";
+    src: url("@/assets/fonts/quicksand-italic-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand-italic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksandlight";
+    src: url("@/assets/fonts/quicksand-light-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand-light-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksandlight_italic";
+    src: url("@/assets/fonts/quicksand-lightitalic-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand-lightitalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "quicksandregular";
+    src: url("@/assets/fonts/quicksand-regular-webfont.woff2") format("woff2"),
+    url("./fonts/quicksand-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,44 @@
+.p-calendar {
+  border-radius: $radius-small;
+}
+
+.p-datepicker-trigger-icon {
+  color: $text-light;
+}
+
+.p-datepicker {
+  background: $bg-light;
+  border: 1px solid $bg-light;
+  color: $text-light;
+
+  .p-datepicker-header {
+    background: $bg-light;
+    border: none;
+
+    .p-link {
+      color: $text-light;
+    }
+  }
+}
+
+html {
+  &.dark {
+    .p-datepicker-trigger-icon {
+      color: $text-dark;
+    }
+
+    .p-datepicker {
+      background: $bg-dark;
+      border: 1px solid $bg-dark;
+      color: $text-dark;
+
+      .p-datepicker-header {
+        background: $bg-dark;
+
+        .p-link {
+          color: $text-dark;
+        }
+      }
+    }
+  }
+}

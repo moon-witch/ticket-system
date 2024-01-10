@@ -1,0 +1,34 @@
+.p-inputtext {
+  color: $text-light;
+  border: none;
+  background: $bg-light;
+  outline: none;
+  box-shadow: none;
+
+  &:active {
+    background: $bg-light;
+  }
+
+  &:focus {
+    background: $bg-light;
+    color: $text-light;
+  }
+}
+
+html {
+  &.dark {
+    .p-inputtext {
+      color: $text-dark;
+      background: $bg-dark;
+
+      &:active {
+        background: $bg-dark;
+      }
+
+      &:focus {
+        background: $bg-dark;
+        color: $text-dark;
+      }
+    }
+  }
+}

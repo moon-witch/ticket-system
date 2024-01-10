@@ -1,0 +1,101 @@
+.p-multiselect {
+  background: $bg-light;
+  border: 1px solid $text-light;
+  font-family: "quicksandregular", sans-serif;
+  font-weight: bold;
+
+  &.p-focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .p-multiselect-label {
+    color: $text-light;
+    .p-placeholder {
+      color: $text-light;
+    }
+  }
+
+  .p-multiselect-trigger {
+    color: $text-light;
+  }
+}
+
+.p-multiselect-panel {
+  background: $bg-light;
+  border-color: $bg-dark;
+
+  .p-multiselect-header {
+    background: inherit;
+    border-color: $bg-dark;
+
+    .p-multiselect-close {
+      color: $text-light;
+    }
+  }
+
+  .p-multiselect-item {
+    color: $text-light;
+
+    &.p-focus {
+      background: inherit;
+    }
+  }
+
+  .p-checkbox-box {
+    background: $bg-light;
+    border: 2px solid $bg-dark;
+  }
+
+  .p-checkbox-icon {
+    color: $text-light;
+  }
+}
+
+html {
+  &.dark {
+    .p-multiselect {
+      background: $bg-dark;
+      font-family: "quicksandregular", sans-serif;
+      font-weight: bold;
+      border: 1px solid $bg-light;
+
+      .p-multiselect-label {
+        color: $text-dark;
+        .p-placeholder {
+          color: $text-dark;
+        }
+      }
+      .p-multiselect-trigger {
+        color: $text-dark;
+      }
+    }
+
+    .p-multiselect-panel {
+      background: $bg-dark;
+      border-color: $bg-light;
+
+      .p-multiselect-header {
+        background: inherit;
+        border-color: $bg-light;
+
+        .p-multiselect-close {
+          color: $text-dark;
+        }
+      }
+
+      .p-multiselect-item {
+        color: $text-dark;
+      }
+
+      .p-checkbox-box {
+        background: $bg-dark;
+        border: 2px solid $bg-light;
+      }
+
+      .p-checkbox-icon {
+        color: $text-dark;
+      }
+    }
+  }
+}

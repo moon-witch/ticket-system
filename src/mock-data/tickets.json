@@ -1,0 +1,124 @@
+{
+  "tickets": [
+    {
+      "id": 127612,
+      "customer": "TechAvant",
+      "type": "Bug",
+      "priority": "Low",
+      "status": "Unopened",
+      "dueDate": "16.12.2024",
+      "assignee": "Joshua Langenbach",
+      "department": "Service"
+    },
+    {
+      "id": 172632,
+      "customer": "TechAvant",
+      "type": "Request",
+      "priority": "Mid",
+      "status": "Unopened",
+      "dueDate": "16.12.2024",
+      "assignee": "Joshua Langenbach",
+      "department": "Service"
+    },
+    {
+      "id": 167263,
+      "customer": "TechAvant",
+      "type": "Request",
+      "priority": "Mid",
+      "status": "Unopened",
+      "dueDate": "16.07.2024",
+      "assignee": "Benjamin Haenel",
+      "department": "Service"
+    },
+    {
+      "id": 124124,
+      "customer": "ServeMaster",
+      "type": "Support",
+      "priority": "High",
+      "status": "Unopened",
+      "dueDate": "14.12.2024",
+      "assignee": "Leah Schlüer",
+      "department": "Technical"
+    },
+    {
+      "id": 127345,
+      "customer": "ServeMaster",
+      "type": "Bug",
+      "priority": "High",
+      "status": "Unopened",
+      "dueDate": "12.03.2024",
+      "assignee": "Leah Schlüer",
+      "department": "Technical"
+    },
+    {
+      "id": 152433,
+      "customer": "ServeMaster",
+      "type": "Bug",
+      "priority": "High",
+      "status": "Unopened",
+      "dueDate": "12.03.2024",
+      "assignee": "Leah Schlüer",
+      "department": "Technical"
+    },
+    {
+      "id": 162342,
+      "customer": "TechAvant",
+      "type": "Bug",
+      "priority": "Low",
+      "status": "Unopened",
+      "dueDate": "16.12.2024",
+      "assignee": "Joshua Langenbach",
+      "department": "Service"
+    },
+    {
+      "id": 123562,
+      "customer": "TechAvant",
+      "type": "Request",
+      "priority": "Mid",
+      "status": "Unopened",
+      "dueDate": "16.12.2024",
+      "assignee": "Joshua Langenbach",
+      "department": "Service"
+    },
+    {
+      "id": 178341,
+      "customer": "TechAvant",
+      "type": "Request",
+      "priority": "Mid",
+      "status": "Unopened",
+      "dueDate": "16.07.2024",
+      "assignee": "Benjamin Haenel",
+      "department": "Service"
+    },
+    {
+      "id": 172345,
+      "customer": "ServeMaster",
+      "type": "Support",
+      "priority": "High",
+      "status": "Unopened",
+      "dueDate": "14.12.2024",
+      "assignee": "Leah Schlüer",
+      "department": "Technical"
+    },
+    {
+      "id": 167234,
+      "customer": "ServeMaster",
+      "type": "Bug",
+      "priority": "High",
+      "status": "Unopened",
+      "dueDate": "12.03.2024",
+      "assignee": "Leah Schlüer",
+      "department": "Technical"
+    },
+    {
+      "id": 165232,
+      "customer": "ServeMaster",
+      "type": "Bug",
+      "priority": "High",
+      "status": "Unopened",
+      "dueDate": "12.03.2024",
+      "assignee": "Leah Schlüer",
+      "department": "Technical"
+    }
+  ]
+}

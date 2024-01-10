@@ -1,0 +1,68 @@
+@import 'fonts.css';
+@import 'animations.css';
+@import 'primevue/datatable.scss';
+@import 'primevue/speeddial.scss';
+@import 'primevue/modal.scss';
+@import 'primevue/dropdown.scss';
+@import 'primevue/multiselect.scss';
+@import 'primevue/inputtext.scss';
+@import 'primevue/calendar.scss';
+
+#app {
+  font-family: 'quicksandregular', sans-serif;
+  font-weight: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  &.dark {
+    ::-webkit-scrollbar-track {
+      border: 1px solid $bg-dark;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: $bg-dark;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: $hover-light;
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-color: $bg-dark transparent; /* thumb and track color */
+    }
+  }
+}
+  
+main {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 1px solid $bg-light;
+  border-radius: $radius-small;
+  margin: 0.5rem 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $bg-light;
+  border-radius: $radius-small;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $hover-dark;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $bg-light transparent; /* thumb and track color */
+}

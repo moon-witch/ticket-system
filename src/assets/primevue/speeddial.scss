@@ -1,0 +1,36 @@
+.p-speeddial-button {
+  background: transparent;
+  border: none;
+  color: $text-light;
+  box-shadow: none;
+}
+
+.p-speeddial-action {
+  background: $bg-light;
+  color: $text-light;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $hover-light;
+    color: $text-dark;
+  }
+}
+
+html {
+  &.dark {
+    .p-speeddial-button {
+      color: $text-dark;
+    }
+
+    .p-speeddial-action {
+      background: $bg-dark;
+      color: $text-dark;
+
+      &:hover {
+        background: $hover-dark;
+        color: $text-light;
+      }
+    }
+  }
+}

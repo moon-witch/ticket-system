@@ -1,0 +1,204 @@
+{
+  "msg": [
+    {
+      "id": 1,
+      "user": "TechAvant",
+      "department": null,
+      "created": "23.12.2023 16:23",
+      "message": "Hi, I have an issue with my service. Help!",
+      "messageType": "external"
+    },
+    {
+      "id": 2,
+      "user": "Joshua Langenbach",
+      "department": "Service",
+      "created": "23.12.2023 18:09",
+      "message": "Yes good sir, I will help.",
+      "messageType": "external"
+    },
+    {
+      "id": 3,
+      "user": "TechAvant",
+      "department": null,
+      "created": "23.12.2023 18:15",
+      "message": "Thank you for the quick response!",
+      "messageType": "external"
+    },
+    {
+      "id": 4,
+      "user": "Mia Chang",
+      "department": "Technical",
+      "created": "24.12.2023 09:45",
+      "message": "Investigating the issue now.",
+      "messageType": "internal"
+    },
+    {
+      "id": 5,
+      "user": "John Doe",
+      "department": "Sales",
+      "created": "24.12.2023 10:15",
+      "message": "Noted. Let me know if you need any information on the customer's plan.",
+      "messageType": "internal"
+    },
+    {
+      "id": 6,
+      "user": "Mia Chang",
+      "department": "Technical",
+      "created": "24.12.2023 10:35",
+      "message": "The issue seems to be with the router configuration.",
+      "messageType": "keynote"
+    },
+    {
+      "id": 7,
+      "user": "TechAvant",
+      "department": null,
+      "created": "24.12.2023 11:00",
+      "message": "Is there an update on my issue?",
+      "messageType": "external"
+    },
+    {
+      "id": 8,
+      "user": "Joshua Langenbach",
+      "department": "Service",
+      "created": "24.12.2023 11:05",
+      "message": "Our technical team is currently working on it, and we'll update you shortly.",
+      "messageType": "external"
+    },
+    {
+      "id": 9,
+      "user": "Mia Chang",
+      "department": "Technical",
+      "created": "24.12.2023 11:30",
+      "message": "The issue has been resolved. Please confirm with the customer.",
+      "messageType": "internal"
+    },
+    {
+      "id": 10,
+      "user": "Joshua Langenbach",
+      "department": "Service",
+      "created": "24.12.2023 11:45",
+      "message": "Your issue has been resolved. Please check and confirm.",
+      "messageType": "external"
+    },
+    {
+      "id": 11,
+      "user": "TechAvant",
+      "department": null,
+      "created": "24.12.2023 12:00",
+      "message": "Yes, it's working now. Thank you!",
+      "messageType": "external"
+    },
+    {
+      "id": 12,
+      "user": "Liam Smith",
+      "department": "Service",
+      "created": "25.12.2023 08:23",
+      "message": "I'm here to assist with any further issues.",
+      "messageType": "external"
+    },
+    {
+      "id": 13,
+      "user": "Sophia Johnson",
+      "department": "Technical",
+      "created": "25.12.2023 09:10",
+      "message": "Checking system status post-resolution.",
+      "messageType": "internal"
+    },
+    {
+      "id": 14,
+      "user": "Emily Davis",
+      "department": "Sales",
+      "created": "25.12.2023 09:35",
+      "message": "Would you be interested in an upgrade to prevent future issues?",
+      "messageType": "external"
+    },
+    {
+      "id": 15,
+      "user": "TechAvant",
+      "department": null,
+      "created": "25.12.2023 10:00",
+      "message": "Can you provide more details on the upgrade?",
+      "messageType": "external"
+    },
+    {
+      "id": 16,
+      "user": "Emily Davis",
+      "department": "Sales",
+      "created": "25.12.2023 10:20",
+      "message": "Sure, I'm sending you the details of our premium plan.",
+      "messageType": "external"
+    },
+    {
+      "id": 17,
+      "user": "Sophia Johnson",
+      "department": "Technical",
+      "created": "25.12.2023 10:45",
+      "message": "All systems are stable post-fix.",
+      "messageType": "internal"
+    },
+    {
+      "id": 18,
+      "user": "Liam Smith",
+      "department": "Service",
+      "created": "25.12.2023 11:05",
+      "message": "If you need further assistance, don't hesitate to contact us.",
+      "messageType": "external"
+    },
+    {
+      "id": 19,
+      "user": "TechAvant",
+      "department": null,
+      "created": "25.12.2023 11:30",
+      "message": "I'm considering the upgrade. I'll get back to you soon.",
+      "messageType": "external"
+    },
+    {
+      "id": 20,
+      "user": "Emily Davis",
+      "department": "Sales",
+      "created": "25.12.2023 11:50",
+      "message": "Take your time. Let me know if you have any questions.",
+      "messageType": "external"
+    },
+    {
+      "id": 21,
+      "user": "Joshua Langenbach",
+      "department": "Service",
+      "created": "26.12.2023 08:10",
+      "message": "Reminder: Follow up with the customer next week.",
+      "messageType": "keynote"
+    },
+    {
+      "id": 22,
+      "user": "Mia Chang",
+      "department": "Technical",
+      "created": "26.12.2023 08:45",
+      "message": "Reviewing recent service issues for pattern analysis.",
+      "messageType": "keynote"
+    },
+    {
+      "id": 23,
+      "user": "John Doe",
+      "department": "Sales",
+      "created": "26.12.2023 09:20",
+      "message": "Compiling a report on customer feedback this quarter.",
+      "messageType": "keynote"
+    },
+    {
+      "id": 24,
+      "user": "TechAvant",
+      "department": null,
+      "created": "26.12.2023 10:00",
+      "message": "I've decided to upgrade. What are the next steps?",
+      "messageType": "external"
+    },
+    {
+      "id": 25,
+      "user": "Emily Davis",
+      "department": "Sales",
+      "created": "26.12.2023 10:30",
+      "message": "Great choice! I'm preparing your upgrade details and will send them shortly.",
+      "messageType": "external"
+    }
+  ]
+}

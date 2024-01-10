@@ -1,0 +1,27 @@
+$primary: #541707;
+$secondary: #fddad2;
+
+$radius-standard: 25px;
+$radius-big: 100px;
+$radius-small: 5px;
+
+$text-header: 25px;
+$text-subheader: 16px;
+$text: 20px;
+
+// dark
+$page-bg-dark: #050200;
+$bg-dark: $primary;
+$text-dark: $secondary;
+$text-sub-dark: #d3a292;
+$shadow-dark: #4f4f4f;
+$hover-dark: $text-sub-dark;
+
+
+// light
+$page-bg-light: #FDF0ED;
+$bg-light: $secondary;
+$text-light: $page-bg-dark;
+$text-sub-light: rgba(80, 26, 10, 0.7);
+$shadow-light: #f8cac1;
+$hover-light: $text-sub-light;

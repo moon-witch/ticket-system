@@ -14,7 +14,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['value-changed-text', 'value-changed-email', 'value-changed-password']);
+const emit = defineEmits(['value-changed-text', 'value-changed-email', 'value-changed-password', `value-changed-${string}`]);
 
 const isDark = useDark()
 

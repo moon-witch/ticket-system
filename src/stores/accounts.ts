@@ -15,7 +15,7 @@ export const useAccountStore = defineStore('account', () => {
     const currentUserDepartment = ref<DepartmentModel | undefined>()
     const departments = ref<DepartmentModel[]>([])
     const currentUser: Ref<AccountModel | undefined> = ref(new AccountModel()) 
-    const allAccounts = ref<AccountModel[]>([])
+    const allAccounts = ref<any[]>([])
 
     async function setCurrentUser(userId: string){
         const { data, error, status } = await supabase

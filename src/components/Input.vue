@@ -14,6 +14,8 @@ const props = defineProps({
   }
 })
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const emit = defineEmits(['value-changed-text', 'value-changed-email', 'value-changed-password', `value-changed-${string}`]);
 
 const isDark = useDark()
